@@ -134,15 +134,15 @@
               <li data-i18n="f7.c2">Hasta 3 idiomas a la vez: uno con voz y los demás como subtítulos.</li>
               <li data-i18n="f7.c3">Si la voz se atrasa, se acelera sin cambiar el tono para no despegarse del video.</li>
             </ul>
-            <div class="chips" aria-label="Opciones de audio original" data-i18n-aria-label="chips.aria">
-              <span class="chip chip--on" data-i18n="chip.smart">Inteligente</span>
-              <span class="chip" data-i18n="chip.muted">Silenciado</span>
-              <span class="chip" data-i18n="chip.15">Al 15 %</span>
-              <span class="chip" data-i18n="chip.30">Al 30 %</span>
-              <span class="chip" data-i18n="chip.50">Al 50 %</span>
-              <span class="chip" data-i18n="chip.none">Sin cambios</span>
+            <div class="chips" role="radiogroup" aria-label="Opciones de audio original" data-i18n-aria-label="chips.aria">
+              <button type="button" class="chip chip--on" role="radio" aria-checked="true" data-desc="f7.note" data-i18n="chip.smart">Inteligente</button>
+              <button type="button" class="chip" role="radio" aria-checked="false" data-desc="opt.muted.d" data-i18n="chip.muted">Silenciado</button>
+              <button type="button" class="chip" role="radio" aria-checked="false" data-desc="opt.pct.d" data-n="15" data-i18n="chip.15">Al 15 %</button>
+              <button type="button" class="chip" role="radio" aria-checked="false" data-desc="opt.pct.d" data-n="30" data-i18n="chip.30">Al 30 %</button>
+              <button type="button" class="chip" role="radio" aria-checked="false" data-desc="opt.pct.d" data-n="50" data-i18n="chip.50">Al 50 %</button>
+              <button type="button" class="chip" role="radio" aria-checked="false" data-desc="opt.none.d" data-i18n="chip.none">Sin cambios</button>
             </div>
-            <p class="note" data-i18n="f7.note">En <strong>Inteligente</strong>, las demás apps se silencian solo mientras alguien habla; la música y los efectos siguen sonando.</p>
+            <p class="note chip-desc" id="chipDesc" aria-live="polite">En <strong>Inteligente</strong>, las demás apps se silencian solo mientras alguien habla; la música y los efectos siguen sonando.</p>
           </div>
         </article>
 

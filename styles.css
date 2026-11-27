@@ -486,3 +486,13 @@ body { overflow-x: clip; }
 @media (max-width: 560px) {
   h1 { font-size: clamp(2rem, 9vw, 2.4rem); }
 }
+
+button.chip { font-family: var(--font-body); cursor: pointer; transition: background .15s, border-color .15s, color .15s, transform .15s; }
+button.chip:hover { border-color: var(--acento); color: var(--texto); transform: translateY(-1px); }
+button.chip:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 2px; }
+.chip-desc {
+  min-height: 3.2em; padding: 12px 14px; border-radius: 12px;
+  background: var(--panel); border: 1px solid var(--borde); border-left: 3px solid var(--acento);
+  transition: opacity .2s;
+}
+.chip-desc.is-swap { opacity: 0; }

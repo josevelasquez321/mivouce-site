@@ -807,6 +807,30 @@ window.MIU_I18N = {
    "pt": "Voltar ao topo",
    "de": "Nach oben",
    "it": "Torna su"
+  },
+  "opt.muted.d": {
+   "es": "En <strong>Silenciado</strong>, las demás apps quedan mudas todo el tiempo y solo se oye la traducción.",
+   "en": "In <strong>Muted</strong> mode, other apps stay silent the whole time and you only hear the translation.",
+   "fr": "En mode <strong>Coupé</strong>, les autres apps restent muettes en permanence et vous n'entendez que la traduction.",
+   "pt": "No modo <strong>Silenciado</strong>, os outros apps ficam mudos o tempo todo e só se ouve a tradução.",
+   "de": "Im Modus <strong>Stumm</strong> bleiben andere Apps die ganze Zeit stumm und du hörst nur die Übersetzung.",
+   "it": "In modalità <strong>Silenziato</strong>, le altre app restano mute per tutto il tempo e si sente solo la traduzione."
+  },
+  "opt.pct.d": {
+   "es": "Con <strong>Al {n} %</strong>, las demás apps bajan al {n} % de su volumen mientras habla la voz traducida, y vuelven a la normalidad cuando termina.",
+   "en": "With <strong>At {n}%</strong>, other apps drop to {n}% of their volume while the translated voice speaks, and go back to normal when it's done.",
+   "fr": "Avec <strong>À {n} %</strong>, les autres apps descendent à {n} % de leur volume pendant que la voix traduite parle, puis reviennent à la normale.",
+   "pt": "Com <strong>Em {n}%</strong>, os outros apps baixam para {n}% do volume enquanto a voz traduzida fala e voltam ao normal quando ela termina.",
+   "de": "Bei <strong>Auf {n} %</strong> sinken andere Apps auf {n} % ihrer Lautstärke, solange die übersetzte Stimme spricht, und kehren danach zum Normalpegel zurück.",
+   "it": "Con <strong>Al {n}%</strong>, le altre app scendono al {n}% del volume mentre parla la voce tradotta e tornano normali quando ha finito."
+  },
+  "opt.none.d": {
+   "es": "En <strong>Sin cambios</strong>, MiuVoice no toca el volumen de las demás apps: la voz traducida suena junto al audio original.",
+   "en": "In <strong>Unchanged</strong> mode, MiuVoice doesn't touch other apps' volume: the translated voice plays alongside the original audio.",
+   "fr": "En mode <strong>Inchangé</strong>, MiuVoice ne touche pas au volume des autres apps : la voix traduite s'ajoute à l'audio original.",
+   "pt": "No modo <strong>Sem alterações</strong>, o MiuVoice não mexe no volume dos outros apps: a voz traduzida toca junto com o áudio original.",
+   "de": "Im Modus <strong>Unverändert</strong> lässt MiuVoice die Lautstärke anderer Apps in Ruhe: Die übersetzte Stimme läuft zusammen mit dem Originalton.",
+   "it": "In modalità <strong>Invariato</strong>, MiuVoice non tocca il volume delle altre app: la voce tradotta suona insieme all'audio originale."
   }
  },
  "f7": {

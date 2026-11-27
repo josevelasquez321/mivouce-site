@@ -154,6 +154,7 @@
       b.setAttribute("aria-checked", b.getAttribute("data-lang") === idioma);
     });
     toggle.setAttribute("aria-label", t(links.classList.contains("is-open") ? "menu.close" : "menu.open"));
+    pintarDescripcion();
     pintarSonido();
     mostrarFrases();
   }
@@ -183,6 +184,39 @@
   });
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && !langMenu.hidden) { abrirIdiomas(false); langBtn.focus(); }
+  });
+
+  var chips = document.querySelectorAll(".chips .chip");
+  var chipDesc = document.getElementById("chipDesc");
+
+  function pintarDescripcion() {
+    var sel = document.querySelector('.chips .chip[aria-checked="true"]');
+    var texto = t(sel.getAttribute("data-desc"));
+    var n = sel.getAttribute("data-n");
+    if (n) texto = texto.split("{n}").join(n);
+    chipDesc.innerHTML = texto;
+  }
+
+  chips.forEach(function (chip, idx) {
+    chip.addEventListener("click", function () {
+      chips.forEach(function (c) {
+        c.classList.toggle("chip--on", c === chip);
+        c.setAttribute("aria-checked", c === chip);
+        c.tabIndex = c === chip ? 0 : -1;
+      });
+      Sonido.tecla(440 + idx * 55);
+      chipDesc.classList.add("is-swap");
+      setTimeout(function () { pintarDescripcion(); chipDesc.classList.remove("is-swap"); }, 150);
+    });
+    chip.addEventListener("keydown", function (e) {
+      var paso = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
+      if (!paso) return;
+      e.preventDefault();
+      var sig = chips[(idx + paso + chips.length) % chips.length];
+      sig.focus();
+      sig.click();
+    });
+    chip.tabIndex = idx === 0 ? 0 : -1;
   });
 
   var sub = document.getElementById("f7Sub");
