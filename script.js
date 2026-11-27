@@ -192,6 +192,7 @@
   function pintarDescripcion() {
     var sel = document.querySelector('.chips .chip[aria-checked="true"]');
     var texto = t(sel.getAttribute("data-desc"));
+    if (!texto) return;
     var n = sel.getAttribute("data-n");
     if (n) texto = texto.split("{n}").join(n);
     chipDesc.innerHTML = texto;
