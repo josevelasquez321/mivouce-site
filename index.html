@@ -35,6 +35,10 @@
       <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
+      <button class="sound" id="soundToggle" aria-pressed="true" aria-label="Silenciar sonidos" title="Sonido">
+        <svg class="sound__on" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="sound__off" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
       <nav class="nav__links" id="navLinks">
         <a href="#modos">Modos</a>
         <a href="#miu">Miu</a>
@@ -45,12 +49,18 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero" id="inicio">
       <div class="hero__bg" aria-hidden="true"></div>
+      <div class="sparkles" aria-hidden="true">
+        <i style="--x:8%;--y:18%;--d:0s"></i><i style="--x:22%;--y:82%;--d:1.2s"></i><i style="--x:38%;--y:12%;--d:2.1s"></i>
+        <i style="--x:46%;--y:70%;--d:.6s"></i><i style="--x:58%;--y:24%;--d:2.8s"></i><i style="--x:66%;--y:88%;--d:1.6s"></i>
+        <i style="--x:78%;--y:10%;--d:.3s"></i><i style="--x:88%;--y:60%;--d:2.4s"></i><i style="--x:94%;--y:30%;--d:1s"></i>
+        <i style="--x:30%;--y:46%;--d:3.2s"></i><i style="--x:52%;--y:48%;--d:1.9s"></i><i style="--x:72%;--y:44%;--d:.9s"></i>
+      </div>
       <div class="wrap hero__inner">
         <div class="hero__text">
-          <p class="eyebrow">Traducción de voz y pantalla en tiempo real</p>
+          <p class="eyebrow"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Traducción de voz y pantalla en tiempo real</p>
+          <p class="hello" aria-hidden="true"><span id="helloWord">Hola</span> 👋</p>
           <h1>Tu compañero de traducción <span class="grad">en tiempo real</span></h1>
           <p class="lead">MiuVoice traduce el texto de tu pantalla, dobla el audio de tu PC y traduce conversaciones cara a cara. Tres modos, una tecla para cada uno.</p>
           <div class="keys" role="list">
@@ -67,16 +77,18 @@
       <img class="hero__mobile" src="assets/img/hero-1000.webp" alt="Miu, un gato naranja con audífonos, traduciendo frente a su laptop" width="1000" height="563">
     </section>
 
-    <!-- MODOS -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track"><span>Hola</span><b>✦</b><span>Hello</span><b>✦</b><span>Bonjour</span><b>✦</b><span>Olá</span><b>✦</b><span>こんにちは</span><b>✦</b><span>안녕하세요</span><b>✦</b><span>你好</span><b>✦</b><span>Привет</span><b>✦</b><span>مرحبا</span><b>✦</b><span>Hallo</span><b>✦</b><span>Ciao</span><b>✦</b><span>Merhaba</span><b>✦</b><span>Xin chào</span><b>✦</b><span>สวัสดี</span><b>✦</b><span>नमस्ते</span><b>✦</b><span>Hola</span><b>✦</b><span>Hello</span><b>✦</b><span>Bonjour</span><b>✦</b><span>Olá</span><b>✦</b><span>こんにちは</span><b>✦</b><span>안녕하세요</span><b>✦</b><span>你好</span><b>✦</b><span>Привет</span><b>✦</b><span>مرحبا</span><b>✦</b><span>Hallo</span><b>✦</b><span>Ciao</span><b>✦</b><span>Merhaba</span><b>✦</b><span>Xin chào</span><b>✦</b><span>สวัสดี</span><b>✦</b><span>नमस्ते</span><b>✦</b></div>
+    </div>
+
     <section class="section" id="modos">
       <div class="wrap">
         <header class="section__head reveal">
           <p class="eyebrow">Modos</p>
           <h2>Tres modos, una tecla cada uno</h2>
-          <p class="section__sub">Los atajos son globales: funcionan aunque MiuVoice no esté al frente. Pulsa la tecla y Miu se pone a trabajar.</p>
+          <p class="section__sub">Haz clic en una tecla para escucharla. Los atajos son globales: funcionan aunque MiuVoice no esté al frente. Pulsa la tecla y Miu se pone a trabajar.</p>
         </header>
 
-        <!-- F6 -->
         <article class="mode reveal" id="f6" style="--c: var(--celeste)">
           <figure class="mode__fig">
             <img src="assets/img/modo_pantalla_f6.webp" alt="Miu usa una lupa para leer el texto de una ventana y lo convierte en texto traducido" width="1200" height="900" loading="lazy">
@@ -93,7 +105,6 @@
           </div>
         </article>
 
-        <!-- F7 -->
         <article class="mode mode--flip reveal" id="f7" style="--c: var(--acento)">
           <figure class="mode__fig fig-f7">
             <img src="assets/img/modo_audio_f7.webp" alt="Miu escucha el audio de un video con sus audífonos y lo convierte en un subtítulo traducido" width="1200" height="900" loading="lazy">
@@ -120,7 +131,6 @@
           </div>
         </article>
 
-        <!-- F8 -->
         <article class="mode reveal" id="f8" style="--c: var(--naranja)">
           <figure class="mode__fig fig-f8">
             <img src="assets/img/modo_conversacion_f8.webp" alt="Una lagartija y un zorro conversan en dos idiomas mientras Miu traduce entre ellos" width="1200" height="900" loading="lazy">
@@ -141,7 +151,6 @@
       </div>
     </section>
 
-    <!-- MIU -->
     <section class="section section--panel" id="miu">
       <div class="wrap">
         <header class="section__head reveal">
@@ -150,13 +159,14 @@
           <p class="section__sub">No hace falta leer registros: con una mirada a Miu sabes si está esperando, escuchando o traduciendo.</p>
         </header>
 
+        <p class="hint">Haz clic en Miu 🐾</p>
         <ul class="poses reveal">
           <li><img src="assets/miu/dormido.webp" alt="" width="180" height="180" loading="lazy"><strong>Durmiendo</strong><span>En espera; pulsa una tecla para empezar</span></li>
           <li><img src="assets/miu/escuchando.webp" alt="" width="180" height="180" loading="lazy"><strong>Escuchando</strong><span>Captando el audio</span></li>
           <li><img src="assets/miu/traduciendo.webp" alt="" width="180" height="180" loading="lazy"><strong>Traduciendo</strong><span>Procesando la frase</span></li>
           <li><img src="assets/miu/hablando.webp" alt="" width="180" height="180" loading="lazy"><strong>Hablando</strong><span>Reproduciendo la voz traducida</span></li>
           <li><img src="assets/miu/configurando.webp" alt="" width="180" height="180" loading="lazy"><strong>Configurando</strong><span>Ajustando idiomas y voz</span></li>
-          <li><img src="assets/miu/feliz.webp" alt="" width="180" height="180" loading="lazy"><strong>Feliz</strong><span>¡Todo listo!</span></li>
+          <li data-confetti><img src="assets/miu/feliz.webp" alt="" width="180" height="180" loading="lazy"><strong>Feliz</strong><span>¡Todo listo!</span></li>
         </ul>
 
         <div class="pets reveal">
@@ -177,7 +187,6 @@
       </div>
     </section>
 
-    <!-- ANDROID -->
     <section class="section" id="android">
       <div class="wrap android">
         <figure class="android__fig reveal">
@@ -197,7 +206,6 @@
       </div>
     </section>
 
-    <!-- IDIOMAS -->
     <section class="section section--tight" id="idiomas">
       <div class="wrap langs reveal">
         <img src="assets/icons/idiomas.webp" alt="" width="72" height="72">
@@ -211,7 +219,6 @@
       </div>
     </section>
 
-    <!-- TECNOLOGÍA -->
     <section class="section section--panel" id="tecnologia">
       <div class="wrap">
         <header class="section__head reveal">
@@ -230,7 +237,6 @@
       </div>
     </section>
 
-    <!-- CIERRE -->
     <section class="section section--tight">
       <div class="wrap soon reveal">
         <img src="assets/miu/dormido.webp" alt="" width="140" height="140" loading="lazy">
@@ -249,6 +255,9 @@
       <p class="footer__credits">Sistema ATJ desarrollado por José Velásquez, logo por Alan Jaques · © 2026</p>
     </div>
   </footer>
+
+  <a class="totop" href="#inicio" aria-label="Volver arriba"><img src="assets/miu/feliz.webp" alt="" width="56" height="56"></a>
+  <div class="glow" aria-hidden="true"></div>
 
   <script src="script.js" defer></script>
 </body>
