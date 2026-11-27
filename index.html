@@ -28,7 +28,7 @@
 
   <header class="nav" id="nav">
     <div class="nav__inner wrap">
-      <a class="brand" href="#inicio" aria-label="MiuVoice, inicio">
+      <a class="brand" href="#inicio" aria-label="MiuVoice, inicio" data-i18n-aria-label="brand.aria">
         <img src="assets/img/logo.png" alt="" width="36" height="36">
         <span>MiuVoice</span>
       </a>
@@ -39,11 +39,26 @@
         <svg class="sound__on" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         <svg class="sound__off" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
+      <div class="lang" id="lang">
+        <button class="lang__btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu" aria-label="Idioma">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span id="langCode">ES</span>
+          <svg class="lang__chev" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="lang__menu" id="langMenu" role="menu" hidden>
+          <li role="none"><button role="menuitemradio" data-lang="es" aria-checked="false"><span class="lang__code">ES</span>Español</button></li>
+          <li role="none"><button role="menuitemradio" data-lang="en" aria-checked="false"><span class="lang__code">EN</span>English</button></li>
+          <li role="none"><button role="menuitemradio" data-lang="fr" aria-checked="false"><span class="lang__code">FR</span>Français</button></li>
+          <li role="none"><button role="menuitemradio" data-lang="pt" aria-checked="false"><span class="lang__code">PT</span>Português</button></li>
+          <li role="none"><button role="menuitemradio" data-lang="de" aria-checked="false"><span class="lang__code">DE</span>Deutsch</button></li>
+          <li role="none"><button role="menuitemradio" data-lang="it" aria-checked="false"><span class="lang__code">IT</span>Italiano</button></li>
+        </ul>
+      </div>
       <nav class="nav__links" id="navLinks">
-        <a href="#modos">Modos</a>
+        <a href="#modos" data-i18n="nav.modes">Modos</a>
         <a href="#miu">Miu</a>
         <a href="#android">Android</a>
-        <a href="#tecnologia">Tecnología</a>
+        <a href="#tecnologia" data-i18n="nav.tech">Tecnología</a>
       </nav>
     </div>
   </header>
@@ -59,22 +74,22 @@
       </div>
       <div class="wrap hero__inner">
         <div class="hero__text">
-          <p class="eyebrow"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Traducción de voz y pantalla en tiempo real</p>
+          <p class="eyebrow"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span data-i18n="hero.eyebrow">Traducción de voz y pantalla en tiempo real</span></p>
           <p class="hello" aria-hidden="true"><span id="helloWord">Hola</span> 👋</p>
-          <h1>Tu compañero de traducción <span class="grad">en tiempo real</span></h1>
-          <p class="lead">MiuVoice traduce el texto de tu pantalla, dobla el audio de tu PC y traduce conversaciones cara a cara. Tres modos, una tecla para cada uno.</p>
+          <h1 data-i18n="hero.title">Tu compañero de traducción <span class="grad">en tiempo real</span></h1>
+          <p class="lead" data-i18n="hero.lead">MiuVoice traduce el texto de tu pantalla, dobla el audio de tu PC y traduce conversaciones cara a cara. Tres modos, una tecla para cada uno.</p>
           <div class="keys" role="list">
-            <a href="#f6" class="key key--celeste" role="listitem"><kbd>F6</kbd><span>Pantalla</span></a>
-            <a href="#f7" class="key key--violeta" role="listitem"><kbd>F7</kbd><span>Audio del PC</span></a>
-            <a href="#f8" class="key key--naranja" role="listitem"><kbd>F8</kbd><span>Conversación</span></a>
+            <a href="#f6" class="key key--celeste" role="listitem"><kbd>F6</kbd><span data-i18n="key.screen">Pantalla</span></a>
+            <a href="#f7" class="key key--violeta" role="listitem"><kbd>F7</kbd><span data-i18n="key.audio">Audio del PC</span></a>
+            <a href="#f8" class="key key--naranja" role="listitem"><kbd>F8</kbd><span data-i18n="key.conv">Conversación</span></a>
           </div>
           <div class="ctas">
-            <a class="btn btn--primary" href="#modos">Ver cómo funciona</a>
-            <a class="btn btn--ghost" href="#android">Versión Android</a>
+            <a class="btn btn--primary" href="#modos" data-i18n="hero.cta1">Ver cómo funciona</a>
+            <a class="btn btn--ghost" href="#android" data-i18n="hero.cta2">Versión Android</a>
           </div>
         </div>
       </div>
-      <img class="hero__mobile" src="assets/img/hero-1000.webp" alt="Miu, un gato naranja con audífonos, traduciendo frente a su laptop" width="1000" height="563">
+      <img class="hero__mobile" src="assets/img/hero-1000.webp" alt="Miu, un gato naranja con audífonos, traduciendo frente a su laptop" data-i18n-alt="hero.alt" width="1000" height="563">
     </section>
 
     <div class="marquee" aria-hidden="true">
@@ -84,67 +99,67 @@
     <section class="section" id="modos">
       <div class="wrap">
         <header class="section__head reveal">
-          <p class="eyebrow">Modos</p>
-          <h2>Tres modos, una tecla cada uno</h2>
-          <p class="section__sub">Haz clic en una tecla para escucharla. Los atajos son globales: funcionan aunque MiuVoice no esté al frente. Pulsa la tecla y Miu se pone a trabajar.</p>
+          <p class="eyebrow" data-i18n="nav.modes">Modos</p>
+          <h2 data-i18n="modes.title">Tres modos, una tecla cada uno</h2>
+          <p class="section__sub" data-i18n="modes.sub">Haz clic en una tecla para escucharla. Los atajos son globales: funcionan aunque MiuVoice no esté al frente. Pulsa la tecla y Miu se pone a trabajar.</p>
         </header>
 
         <article class="mode reveal" id="f6" style="--c: var(--celeste)">
           <figure class="mode__fig">
-            <img src="assets/img/modo_pantalla_f6.webp" alt="Miu usa una lupa para leer el texto de una ventana y lo convierte en texto traducido" width="1200" height="900" loading="lazy">
+            <img src="assets/img/modo_pantalla_f6.webp" alt="Miu usa una lupa para leer el texto de una ventana y lo convierte en texto traducido" data-i18n-alt="f6.alt" width="1200" height="900" loading="lazy">
           </figure>
           <div class="mode__body">
-            <div class="mode__tag"><img src="assets/icons/pantalla.webp" alt="" width="44" height="44"><kbd>F6</kbd><span>Modo Pantalla</span></div>
-            <h3>Traduce lo que se lee en tu pantalla</h3>
-            <p>Lee el texto visible con OCR y pone la traducción encima, justo donde está el original.</p>
+            <div class="mode__tag"><img src="assets/icons/pantalla.webp" alt="" width="44" height="44"><kbd>F6</kbd><span data-i18n="f6.tag">Modo Pantalla</span></div>
+            <h3 data-i18n="f6.title">Traduce lo que se lee en tu pantalla</h3>
+            <p data-i18n="f6.desc">Lee el texto visible con OCR y pone la traducción encima, justo donde está el original.</p>
             <ul class="checks">
-              <li>Detecta si el texto ya está en tu idioma o no se puede traducir, y lo deja tal cual.</li>
-              <li>Lectura de texto en 15 idiomas, incluidos japonés, coreano, chino, ruso y árabe.</li>
-              <li>Traducción con OpenAI, o con Google y protección de nombres propios.</li>
+              <li data-i18n="f6.c1">Detecta si el texto ya está en tu idioma o no se puede traducir, y lo deja tal cual.</li>
+              <li data-i18n="f6.c2">Lectura de texto en 15 idiomas, incluidos japonés, coreano, chino, ruso y árabe.</li>
+              <li data-i18n="f6.c3">Traducción con OpenAI, o con Google y protección de nombres propios.</li>
             </ul>
           </div>
         </article>
 
         <article class="mode mode--flip reveal" id="f7" style="--c: var(--acento)">
           <figure class="mode__fig fig-f7">
-            <img src="assets/img/modo_audio_f7.webp" alt="Miu escucha el audio de un video con sus audífonos y lo convierte en un subtítulo traducido" width="1200" height="900" loading="lazy">
+            <img src="assets/img/modo_audio_f7.webp" alt="Miu escucha el audio de un video con sus audífonos y lo convierte en un subtítulo traducido" data-i18n-alt="f7.alt" width="1200" height="900" loading="lazy">
             <span class="f7-sub" id="f7Sub" aria-hidden="true">¡Hola a todos!</span>
           </figure>
           <div class="mode__body">
-            <div class="mode__tag"><img src="assets/icons/audio.webp" alt="" width="44" height="44"><kbd>F7</kbd><span>Modo Audio del PC</span></div>
-            <h3>Dobla en vivo lo que suena en tu PC</h3>
-            <p>Videos, streams, llamadas o juegos: MiuVoice escucha el audio del sistema y lo dobla con voz traducida, con subtítulos flotantes.</p>
+            <div class="mode__tag"><img src="assets/icons/audio.webp" alt="" width="44" height="44"><kbd>F7</kbd><span data-i18n="f7.tag">Modo Audio del PC</span></div>
+            <h3 data-i18n="f7.title">Dobla en vivo lo que suena en tu PC</h3>
+            <p data-i18n="f7.desc">Videos, streams, llamadas o juegos: MiuVoice escucha el audio del sistema y lo dobla con voz traducida, con subtítulos flotantes.</p>
             <ul class="checks">
-              <li>El idioma de origen se detecta solo.</li>
-              <li>Hasta 3 idiomas a la vez: uno con voz y los demás como subtítulos.</li>
-              <li>Si la voz se atrasa, se acelera sin cambiar el tono para no despegarse del video.</li>
+              <li data-i18n="f7.c1">El idioma de origen se detecta solo.</li>
+              <li data-i18n="f7.c2">Hasta 3 idiomas a la vez: uno con voz y los demás como subtítulos.</li>
+              <li data-i18n="f7.c3">Si la voz se atrasa, se acelera sin cambiar el tono para no despegarse del video.</li>
             </ul>
-            <div class="chips" aria-label="Opciones de audio original">
-              <span class="chip chip--on">Inteligente</span>
-              <span class="chip">Silenciado</span>
-              <span class="chip">Al 15 %</span>
-              <span class="chip">Al 30 %</span>
-              <span class="chip">Al 50 %</span>
-              <span class="chip">Sin cambios</span>
+            <div class="chips" aria-label="Opciones de audio original" data-i18n-aria-label="chips.aria">
+              <span class="chip chip--on" data-i18n="chip.smart">Inteligente</span>
+              <span class="chip" data-i18n="chip.muted">Silenciado</span>
+              <span class="chip" data-i18n="chip.15">Al 15 %</span>
+              <span class="chip" data-i18n="chip.30">Al 30 %</span>
+              <span class="chip" data-i18n="chip.50">Al 50 %</span>
+              <span class="chip" data-i18n="chip.none">Sin cambios</span>
             </div>
-            <p class="note">En <strong>Inteligente</strong>, las demás apps se silencian solo mientras alguien habla; la música y los efectos siguen sonando.</p>
+            <p class="note" data-i18n="f7.note">En <strong>Inteligente</strong>, las demás apps se silencian solo mientras alguien habla; la música y los efectos siguen sonando.</p>
           </div>
         </article>
 
         <article class="mode reveal" id="f8" style="--c: var(--naranja)">
           <figure class="mode__fig fig-f8">
-            <img src="assets/img/modo_conversacion_f8.webp" alt="Una lagartija y un zorro conversan en dos idiomas mientras Miu traduce entre ellos" width="1200" height="900" loading="lazy">
+            <img src="assets/img/modo_conversacion_f8.webp" alt="Una lagartija y un zorro conversan en dos idiomas mientras Miu traduce entre ellos" data-i18n-alt="f8.alt" width="1200" height="900" loading="lazy">
             <span class="bubble bubble--a" aria-hidden="true"><small>EN</small>Where are you from?</span>
             <span class="bubble bubble--b" aria-hidden="true"><small>ES</small>¿De dónde eres?</span>
           </figure>
           <div class="mode__body">
-            <div class="mode__tag"><img src="assets/icons/conversacion.webp" alt="" width="44" height="44"><kbd>F8</kbd><span>Modo Conversación</span></div>
-            <h3>Dos personas, dos idiomas, una pantalla</h3>
-            <p>Cada uno habla en su idioma y la traducción aparece del lado del otro, con su mascota, sin tener que pedir turno.</p>
+            <div class="mode__tag"><img src="assets/icons/conversacion.webp" alt="" width="44" height="44"><kbd>F8</kbd><span data-i18n="f8.tag">Modo Conversación</span></div>
+            <h3 data-i18n="f8.title">Dos personas, dos idiomas, una pantalla</h3>
+            <p data-i18n="f8.desc">Cada uno habla en su idioma y la traducción aparece del lado del otro, con su mascota, sin tener que pedir turno.</p>
             <ul class="checks">
-              <li>Reconoce la voz de cada persona para saber quién está hablando.</li>
-              <li>Modo automático, o turno manual con las teclas 1 y 2.</li>
-              <li>Transcripción completa de la conversación, exportable a .txt.</li>
+              <li data-i18n="f8.c1">Reconoce la voz de cada persona para saber quién está hablando.</li>
+              <li data-i18n="f8.c2">Modo automático, o turno manual con las teclas 1 y 2.</li>
+              <li data-i18n="f8.c3">Transcripción completa de la conversación, exportable a .txt.</li>
             </ul>
           </div>
         </article>
@@ -154,28 +169,28 @@
     <section class="section section--panel" id="miu">
       <div class="wrap">
         <header class="section__head reveal">
-          <p class="eyebrow">Conoce a Miu</p>
-          <h2>Miu te muestra lo que MiuVoice está haciendo</h2>
-          <p class="section__sub">No hace falta leer registros: con una mirada a Miu sabes si está esperando, escuchando o traduciendo.</p>
+          <p class="eyebrow" data-i18n="miu.eyebrow">Conoce a Miu</p>
+          <h2 data-i18n="miu.title">Miu te muestra lo que MiuVoice está haciendo</h2>
+          <p class="section__sub" data-i18n="miu.sub">No hace falta leer registros: con una mirada a Miu sabes si está esperando, escuchando o traduciendo.</p>
         </header>
 
-        <p class="hint">Haz clic en Miu 🐾</p>
+        <p class="hint" data-i18n="miu.hint">Haz clic en Miu 🐾</p>
         <ul class="poses reveal">
-          <li><img src="assets/miu/dormido.webp" alt="" width="180" height="180" loading="lazy"><strong>Durmiendo</strong><span>En espera; pulsa una tecla para empezar</span></li>
-          <li><img src="assets/miu/escuchando.webp" alt="" width="180" height="180" loading="lazy"><strong>Escuchando</strong><span>Captando el audio</span></li>
-          <li><img src="assets/miu/traduciendo.webp" alt="" width="180" height="180" loading="lazy"><strong>Traduciendo</strong><span>Procesando la frase</span></li>
-          <li><img src="assets/miu/hablando.webp" alt="" width="180" height="180" loading="lazy"><strong>Hablando</strong><span>Reproduciendo la voz traducida</span></li>
-          <li><img src="assets/miu/configurando.webp" alt="" width="180" height="180" loading="lazy"><strong>Configurando</strong><span>Ajustando idiomas y voz</span></li>
-          <li data-confetti><img src="assets/miu/feliz.webp" alt="" width="180" height="180" loading="lazy"><strong>Feliz</strong><span>¡Todo listo!</span></li>
+          <li><img src="assets/miu/dormido.webp" alt="" width="180" height="180" loading="lazy"><strong data-i18n="pose.sleep">Durmiendo</strong><span data-i18n="pose.sleep.d">En espera; pulsa una tecla para empezar</span></li>
+          <li><img src="assets/miu/escuchando.webp" alt="" width="180" height="180" loading="lazy"><strong data-i18n="pose.listen">Escuchando</strong><span data-i18n="pose.listen.d">Captando el audio</span></li>
+          <li><img src="assets/miu/traduciendo.webp" alt="" width="180" height="180" loading="lazy"><strong data-i18n="pose.trans">Traduciendo</strong><span data-i18n="pose.trans.d">Procesando la frase</span></li>
+          <li><img src="assets/miu/hablando.webp" alt="" width="180" height="180" loading="lazy"><strong data-i18n="pose.speak">Hablando</strong><span data-i18n="pose.speak.d">Reproduciendo la voz traducida</span></li>
+          <li><img src="assets/miu/configurando.webp" alt="" width="180" height="180" loading="lazy"><strong data-i18n="pose.config">Configurando</strong><span data-i18n="pose.config.d">Ajustando idiomas y voz</span></li>
+          <li data-confetti><img src="assets/miu/feliz.webp" alt="" width="180" height="180" loading="lazy"><strong data-i18n="pose.happy">Feliz</strong><span data-i18n="pose.happy.d">¡Todo listo!</span></li>
         </ul>
 
         <div class="pets reveal">
           <div class="pets__text">
-            <h3>Y en Conversación, cada lado tiene su mascota</h3>
-            <p>Elige la tuya para cada lado de la pantalla, o déjalas en «Aleatorio» para que se sorteen en cada conversación.</p>
+            <h3 data-i18n="pets.title">Y en Conversación, cada lado tiene su mascota</h3>
+            <p data-i18n="pets.desc">Elige la tuya para cada lado de la pantalla, o déjalas en «Aleatorio» para que se sorteen en cada conversación.</p>
           </div>
           <figure class="pets__fig">
-            <img src="assets/img/fila_avatares.webp" alt="Seis mascotas saludando: un búho, una coneja, un gato, una lagartija, un perro y un zorro" width="1800" height="525" loading="lazy">
+            <img src="assets/img/fila_avatares.webp" alt="Seis mascotas saludando: un búho, una coneja, un gato, una lagartija, un perro y un zorro" data-i18n-alt="pets.alt" width="1800" height="525" loading="lazy">
             <span class="pb" style="--x:11.1; --y:22.6" aria-hidden="true">Hola</span>
             <span class="pb" style="--x:26.9; --y:23.2" aria-hidden="true">Hello</span>
             <span class="pb" style="--x:43.2; --y:23.2" aria-hidden="true">Salut</span>
@@ -190,18 +205,18 @@
     <section class="section" id="android">
       <div class="wrap android">
         <figure class="android__fig reveal">
-          <img src="assets/img/burbuja_android.webp" alt="Un teléfono Android con la burbuja flotante de Miu y sus accesos a pantalla, audio, conversación y apagado" width="1200" height="900" loading="lazy">
+          <img src="assets/img/burbuja_android.webp" alt="Un teléfono Android con la burbuja flotante de Miu y sus accesos a pantalla, audio, conversación y apagado" data-i18n-alt="android.alt" width="1200" height="900" loading="lazy">
         </figure>
         <div class="android__body reveal">
-          <div class="mode__tag" style="--c: var(--acento)"><img src="assets/icons/android.webp" alt="" width="44" height="44"><span>Android · versión 1.0</span></div>
-          <h2>MiuVoice también en tu teléfono</h2>
-          <p class="lead">La misma estética y los mismos modos, en Android. Una burbuja flotante con Miu te da acceso rápido a todo, sobre cualquier app.</p>
+          <div class="mode__tag" style="--c: var(--acento)"><img src="assets/icons/android.webp" alt="" width="44" height="44"><span data-i18n="android.tag">Android · versión 1.0</span></div>
+          <h2 data-i18n="android.title">MiuVoice también en tu teléfono</h2>
+          <p class="lead" data-i18n="android.lead">La misma estética y los mismos modos, en Android. Una burbuja flotante con Miu te da acceso rápido a todo, sobre cualquier app.</p>
           <ul class="feature-list">
-            <li><img src="assets/icons/pantalla.webp" alt="" width="36" height="36"><div><strong>Pantalla</strong><span>Traducciones superpuestas sobre el texto de otras apps.</span></div></li>
-            <li><img src="assets/icons/audio.webp" alt="" width="36" height="36"><div><strong>Audio</strong><span>Subtítulos flotantes y voz traducida.</span></div></li>
-            <li><img src="assets/icons/conversacion.webp" alt="" width="36" height="36"><div><strong>Conversación</strong><span>Cara a cara, con el teléfono entre los dos.</span></div></li>
+            <li><img src="assets/icons/pantalla.webp" alt="" width="36" height="36"><div><strong data-i18n="key.screen">Pantalla</strong><span data-i18n="android.screen.d">Traducciones superpuestas sobre el texto de otras apps.</span></div></li>
+            <li><img src="assets/icons/audio.webp" alt="" width="36" height="36"><div><strong data-i18n="android.audio">Audio</strong><span data-i18n="android.audio.d">Subtítulos flotantes y voz traducida.</span></div></li>
+            <li><img src="assets/icons/conversacion.webp" alt="" width="36" height="36"><div><strong data-i18n="key.conv">Conversación</strong><span data-i18n="android.conv.d">Cara a cara, con el teléfono entre los dos.</span></div></li>
           </ul>
-          <p class="note">Requiere Android 8.0 o superior.</p>
+          <p class="note" data-i18n="android.req">Requiere Android 8.0 o superior.</p>
         </div>
       </div>
     </section>
@@ -210,8 +225,8 @@
       <div class="wrap langs reveal">
         <img src="assets/icons/idiomas.webp" alt="" width="72" height="72">
         <div>
-          <h2>Idiomas</h2>
-          <p>Elige entre <strong>español, inglés, francés y portugués</strong>. En la voz en vivo no tienes que decir de qué idioma viene: MiuVoice lo detecta solo.</p>
+          <h2 data-i18n="langs.title">Idiomas</h2>
+          <p data-i18n="langs.desc">Elige entre <strong>español, inglés, francés y portugués</strong>. En la voz en vivo no tienes que decir de qué idioma viene: MiuVoice lo detecta solo.</p>
         </div>
         <div class="langs__chips">
           <span>Español</span><span>English</span><span>Français</span><span>Português</span>
@@ -222,17 +237,17 @@
     <section class="section section--panel" id="tecnologia">
       <div class="wrap">
         <header class="section__head reveal">
-          <p class="eyebrow">Bajo el capó</p>
-          <h2>Cómo funciona MiuVoice</h2>
-          <p class="section__sub">Modelos en la nube para traducir la voz al instante y modelos locales para saber cuándo y quién está hablando.</p>
+          <p class="eyebrow" data-i18n="tech.eyebrow">Bajo el capó</p>
+          <h2 data-i18n="tech.title">Cómo funciona MiuVoice</h2>
+          <p class="section__sub" data-i18n="tech.sub">Modelos en la nube para traducir la voz al instante y modelos locales para saber cuándo y quién está hablando.</p>
         </header>
         <div class="tech reveal">
-          <div class="tech__card"><span class="tech__k">Voz en vivo</span><strong>OpenAI Realtime</strong><p>Traducción de voz a voz en streaming, con transcripción de lo que se dice.</p></div>
-          <div class="tech__card"><span class="tech__k">Texto en pantalla</span><strong>Tesseract OCR + OpenCV</strong><p>Detecta las líneas de texto y las lee para traducirlas en su lugar.</p></div>
-          <div class="tech__card"><span class="tech__k">Traducción de texto</span><strong>GPT-4o mini · Google</strong><p>Con detección de idioma y protección de nombres propios con spaCy.</p></div>
-          <div class="tech__card"><span class="tech__k">Detección de voz</span><strong>Silero VAD</strong><p>Modelo local que distingue la voz del ruido y la música.</p></div>
-          <div class="tech__card"><span class="tech__k">¿Quién habla?</span><strong>WeSpeaker ResNet34</strong><p>Huellas de voz locales para separar a las dos personas en Conversación.</p></div>
-          <div class="tech__card"><span class="tech__k">Interfaz</span><strong>PySide6 · Android nativo</strong><p>App de escritorio para Windows en Qt y app Android escrita en Java.</p></div>
+          <div class="tech__card"><span class="tech__k" data-i18n="tech1.k">Voz en vivo</span><strong>OpenAI Realtime</strong><p data-i18n="tech1.d">Traducción de voz a voz en streaming, con transcripción de lo que se dice.</p></div>
+          <div class="tech__card"><span class="tech__k" data-i18n="tech2.k">Texto en pantalla</span><strong>Tesseract OCR + OpenCV</strong><p data-i18n="tech2.d">Detecta las líneas de texto y las lee para traducirlas en su lugar.</p></div>
+          <div class="tech__card"><span class="tech__k" data-i18n="tech3.k">Traducción de texto</span><strong>GPT-4o mini · Google</strong><p data-i18n="tech3.d">Con detección de idioma y protección de nombres propios con spaCy.</p></div>
+          <div class="tech__card"><span class="tech__k" data-i18n="tech4.k">Detección de voz</span><strong>Silero VAD</strong><p data-i18n="tech4.d">Modelo local que distingue la voz del ruido y la música.</p></div>
+          <div class="tech__card"><span class="tech__k" data-i18n="tech5.k">¿Quién habla?</span><strong>WeSpeaker ResNet34</strong><p data-i18n="tech5.d">Huellas de voz locales para separar a las dos personas en Conversación.</p></div>
+          <div class="tech__card"><span class="tech__k" data-i18n="tech6.k">Interfaz</span><strong data-i18n="tech6.n">PySide6 · Android nativo</strong><p data-i18n="tech6.d">App de escritorio para Windows en Qt y app Android escrita en Java.</p></div>
         </div>
       </div>
     </section>
@@ -241,8 +256,8 @@
       <div class="wrap soon reveal">
         <img src="assets/miu/dormido.webp" alt="" width="140" height="140" loading="lazy">
         <div>
-          <h2>Próximamente para Windows y Android</h2>
-          <p>Miu está terminando los últimos detalles. Cuando esté listo, vas a poder descargarlo desde aquí.</p>
+          <h2 data-i18n="soon.title">Próximamente para Windows y Android</h2>
+          <p data-i18n="soon.desc">Miu está terminando los últimos detalles. Cuando esté listo, vas a poder descargarlo desde aquí.</p>
         </div>
       </div>
     </section>
@@ -251,14 +266,15 @@
   <footer class="footer">
     <div class="wrap footer__inner">
       <a class="brand" href="#inicio"><img src="assets/img/logo.png" alt="" width="32" height="32"><span>MiuVoice</span></a>
-      <p>Proyecto de Título · Ingeniería en Informática · INACAP</p>
-      <p class="footer__credits">Sistema ATJ desarrollado por José Velásquez, logo por Alan Jaques · © 2026</p>
+      <p data-i18n="footer.project">Proyecto de Título · Ingeniería en Informática · INACAP</p>
+      <p class="footer__credits" data-i18n="footer.credits">Sistema ATJ desarrollado por José Velásquez, logo por Alan Jaques · © 2026</p>
     </div>
   </footer>
 
-  <a class="totop" href="#inicio" aria-label="Volver arriba"><img src="assets/miu/feliz.webp" alt="" width="56" height="56"></a>
+  <a class="totop" href="#inicio" aria-label="Volver arriba" data-i18n-aria-label="totop.aria"><img src="assets/miu/feliz.webp" alt="" width="56" height="56"></a>
   <div class="glow" aria-hidden="true"></div>
 
+  <script src="i18n.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>

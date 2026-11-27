@@ -1,5 +1,24 @@
 (function () {
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var I18N = window.MIU_I18N;
+
+  var idioma = (function () {
+    var guardado = null;
+    try { guardado = localStorage.getItem("miu-idioma"); } catch (e) {}
+    if (guardado && I18N.langs.indexOf(guardado) !== -1) return guardado;
+    var nav = (navigator.languages || [navigator.language || "es"]);
+    for (var n = 0; n < nav.length; n++) {
+      var c = String(nav[n]).slice(0, 2).toLowerCase();
+      if (I18N.langs.indexOf(c) !== -1) return c;
+    }
+    return "es";
+  })();
+
+  function t(k) {
+    var e = I18N.t[k];
+    if (!e) return "";
+    return e[idioma] || e.es;
+  }
 
   var Sonido = (function () {
     var ctx = null;
@@ -76,7 +95,9 @@
   var botonSonido = document.getElementById("soundToggle");
   function pintarSonido() {
     botonSonido.setAttribute("aria-pressed", Sonido.activo);
-    botonSonido.setAttribute("aria-label", Sonido.activo ? "Silenciar sonidos" : "Activar sonidos");
+    var etiqueta = t(Sonido.activo ? "sound.mute" : "sound.unmute");
+    botonSonido.setAttribute("aria-label", etiqueta);
+    botonSonido.setAttribute("title", etiqueta);
   }
   pintarSonido();
   botonSonido.addEventListener("click", function () {
@@ -90,7 +111,7 @@
   toggle.addEventListener("click", function () {
     var open = links.classList.toggle("is-open");
     toggle.setAttribute("aria-expanded", open);
-    toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+    toggle.setAttribute("aria-label", t(open ? "menu.close" : "menu.open"));
     Sonido.pop();
   });
   links.addEventListener("click", function (e) {
@@ -99,6 +120,85 @@
       toggle.setAttribute("aria-expanded", "false");
     }
   });
+
+  var langBtn = document.getElementById("langBtn");
+  var langMenu = document.getElementById("langMenu");
+  var langCode = document.getElementById("langCode");
+  var opciones = langMenu.querySelectorAll("[data-lang]");
+
+  function abrirIdiomas(abrir) {
+    langMenu.hidden = !abrir;
+    langBtn.setAttribute("aria-expanded", abrir);
+    if (abrir) {
+      var actual = langMenu.querySelector('[aria-checked="true"]') || opciones[0];
+      actual.focus();
+    }
+  }
+
+  function aplicarIdioma() {
+    document.documentElement.lang = idioma;
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      el.innerHTML = t(el.getAttribute("data-i18n"));
+    });
+    ["alt", "aria-label"].forEach(function (attr) {
+      document.querySelectorAll("[data-i18n-" + attr + "]").forEach(function (el) {
+        el.setAttribute(attr, t(el.getAttribute("data-i18n-" + attr)));
+      });
+    });
+    document.title = "MiuVoice · " + t("hero.eyebrow");
+    var desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute("content", t("hero.lead"));
+    langCode.textContent = idioma.toUpperCase();
+    langBtn.setAttribute("aria-label", t("lang.label") + ": " + I18N.names[idioma]);
+    opciones.forEach(function (b) {
+      b.setAttribute("aria-checked", b.getAttribute("data-lang") === idioma);
+    });
+    toggle.setAttribute("aria-label", t(links.classList.contains("is-open") ? "menu.close" : "menu.open"));
+    pintarSonido();
+    mostrarFrases();
+  }
+
+  langBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    abrirIdiomas(langMenu.hidden);
+    Sonido.pop();
+  });
+  opciones.forEach(function (b, idx) {
+    b.addEventListener("mouseenter", Sonido.tick);
+    b.addEventListener("click", function () {
+      idioma = b.getAttribute("data-lang");
+      try { localStorage.setItem("miu-idioma", idioma); } catch (e) {}
+      aplicarIdioma();
+      abrirIdiomas(false);
+      langBtn.focus();
+      Sonido.encendido();
+    });
+    b.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowDown") { e.preventDefault(); opciones[(idx + 1) % opciones.length].focus(); }
+      if (e.key === "ArrowUp") { e.preventDefault(); opciones[(idx - 1 + opciones.length) % opciones.length].focus(); }
+    });
+  });
+  document.addEventListener("click", function (e) {
+    if (!langMenu.hidden && !document.getElementById("lang").contains(e.target)) abrirIdiomas(false);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !langMenu.hidden) { abrirIdiomas(false); langBtn.focus(); }
+  });
+
+  var sub = document.getElementById("f7Sub");
+  var a = document.querySelector(".bubble--a");
+  var b = document.querySelector(".bubble--b");
+  var fi = 0;
+  var di = 0;
+
+  function mostrarFrases() {
+    sub.textContent = I18N.f7[idioma][fi];
+    var otro = idioma === "en" ? "es" : "en";
+    a.innerHTML = "<small>" + otro.toUpperCase() + "</small>" + I18N.conv[otro][di];
+    b.innerHTML = "<small>" + idioma.toUpperCase() + "</small>" + I18N.conv[idioma][di];
+  }
+
+  aplicarIdioma();
 
   document.querySelectorAll(".btn, .nav__links a, .chip, .feature-list li, .tech__card, .brand").forEach(function (el) {
     el.addEventListener("mouseenter", Sonido.tick);
@@ -197,7 +297,7 @@
   }
 
   var saludo = document.getElementById("helloWord");
-  var saludos = ["Hola", "Hello", "Bonjour", "Olá"];
+  var saludos = ["Hola", "Hello", "Bonjour", "Olá", "Hallo", "Ciao"];
   var s = 0;
   setInterval(function () {
     s = (s + 1) % saludos.length;
@@ -205,31 +305,15 @@
     setTimeout(function () { saludo.textContent = saludos[s]; saludo.classList.remove("is-out"); }, 300);
   }, 2200);
 
-  var sub = document.getElementById("f7Sub");
-  var frases = ["¡Hola a todos!", "Bienvenidos", "¡Empecemos!"];
-  var i = 0;
   setInterval(function () {
-    i = (i + 1) % frases.length;
+    fi = (fi + 1) % I18N.f7[idioma].length;
     sub.style.opacity = 0;
-    setTimeout(function () { sub.textContent = frases[i]; sub.style.opacity = 1; }, 350);
+    setTimeout(function () { sub.textContent = I18N.f7[idioma][fi]; sub.style.opacity = 1; }, 350);
   }, 2800);
 
-  var a = document.querySelector(".bubble--a");
-  var b = document.querySelector(".bubble--b");
-  var dialogos = [
-    ["EN", "Where are you from?", "ES", "¿De dónde eres?"],
-    ["EN", "I'm from Toronto!", "ES", "¡Soy de Toronto!"],
-    ["EN", "Nice to meet you!", "ES", "¡Encantado de conocerte!"]
-  ];
-  var j = 0;
   setInterval(function () {
-    j = (j + 1) % dialogos.length;
-    var d = dialogos[j];
+    di = (di + 1) % I18N.conv[idioma].length;
     a.style.opacity = b.style.opacity = 0;
-    setTimeout(function () {
-      a.innerHTML = "<small>" + d[0] + "</small>" + d[1];
-      b.innerHTML = "<small>" + d[2] + "</small>" + d[3];
-      a.style.opacity = b.style.opacity = 1;
-    }, 350);
+    setTimeout(function () { mostrarFrases(); a.style.opacity = b.style.opacity = 1; }, 350);
   }, 3400);
 })();
